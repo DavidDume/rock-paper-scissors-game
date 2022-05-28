@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+    
+    <script>
+        const selection = ["Rock", "Paper", "Scissors"];
+
+        function computerPlay() {
+            return selection[Math.floor(Math.random()*selection.length)];
+        }
+
+        function playRound(computerSelects, userSelects) {
+            let computer = computerSelects.toLowerCase()
+            let user = userSelects.toLowerCase()
+            if(computer === "paper" && user === "rock") {
+                return "Computer Selects Paper, " + " Computer Wins!"
+            } else if(computer === "paper" && user === "scissors") {
+                return "Computer Selects Paper, " + " You Win!"
+            } else if(computer === "paper" && user === "paper") {
+                return "Computer Selects Paper, " + " Its a Tie!"
+            } else if(computer === "rock" && user === "scissors") {
+                return "Computer Selects Rock, " + " Computer Wins!"
+            } else if(computer === "rock" && user === "paper") {
+                return "Computer Selects Rock, " + " You Win!"
+            } else if(computer === "rock" && user === "rock") {
+                return "Computer Selects Rock, " + " Its a Tie!"
+            } else if (computer === "scissors" && user === "paper") {
+                return "Computer Selects Scissors, " + " Computer Wins!"
+            } else if(computer === "scissors" && user === "rock") {
+                return "Computer Selects Scissors, " + " You Win!"
+            } else if(computer === "scissors" && user === "scissors") {
+                return "Computer Selects Scissors, " + " Its a Tie!"
+            }
+        }
+        
+        function game() {
+            for (let i = 0; i <= 5; i++) {
+                console.log(playRound(computerPlay(), window.prompt('Choose Rock Paper Scissors')));
+            }
+        }
+
+        game()
+
+    </script>
+</body>
+</html>
